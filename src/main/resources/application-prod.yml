@@ -1,0 +1,7 @@
+twilio:
+  account_sid: AC3597e410b816a7e82920dc25fb3f16f2
+  auth_token: d606fa704fd42fe0cc30a4eb500a984b
+  trial_number: +15005550006
+
+server:
+  port: 8080

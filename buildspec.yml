@@ -1,0 +1,44 @@
+version: 0.2
+
+phases:
+    install:
+        runtime-versions:
+            java: corretto8
+        commands:
+            - echo Entered the install phase...
+            - apt-get update -y
+            - apt-get install -y maven
+        finally:
+            - echo This always runs even if the update or install command fails
+    pre_build:
+        commands:
+            - echo Logging in to Amazon ECR...
+            - aws --version
+            - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+            - REPOSITORY_URI=$GENERAL_ECR
+            - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+            - IMAGE_TAG=${COMMIT_HASH:=latest}
+        finally:
+            - echo This always runs even if the login command fails
+    build:
+        commands:
+            - echo Entered the build phase...
+            - echo Build started on `date`
+            - mvn clean install -Pprod
+            - docker build -t $REPOSITORY_URI:latest .
+            - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+        finally:
+            - echo This always runs even if the install command fails
+    post_build:
+        commands:
+            - echo Entered the post_build phase...
+            - echo Build completed on `date`
+            - docker push $REPOSITORY_URI:latest
+            - docker push $REPOSITORY_URI:$IMAGE_TAG
+            - printf '[{"name":"medaforum_app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
+artifacts:
+    files:
+        - imageDetail.json
+cache:
+    paths:
+        - '/root/.m2/**/*'
