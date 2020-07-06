@@ -1,4 +1,4 @@
-package au.com.medaforum.twilioDemo.sms.configurations;
+package au.com.medaforum.twilioSms.sms.configurations;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

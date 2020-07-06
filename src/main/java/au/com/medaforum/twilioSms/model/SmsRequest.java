@@ -1,4 +1,4 @@
-package au.com.medaforum.twilioDemo.model;
+package au.com.medaforum.twilioSms.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

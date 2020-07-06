@@ -1,7 +1,7 @@
-package au.com.medaforum.twilioDemo.controller;
+package au.com.medaforum.twilioSms.controller;
 
-import au.com.medaforum.twilioDemo.model.SmsRequest;
-import au.com.medaforum.twilioDemo.service.TwilioSmsService;
+import au.com.medaforum.twilioSms.model.SmsRequest;
+import au.com.medaforum.twilioSms.service.TwilioSmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

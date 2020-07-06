@@ -1,4 +1,4 @@
-package au.com.medaforum.twilioDemo;
+package au.com.medaforum.twilioSms;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package au.com.medaforum.twilioDemo.sms.configurations;
+package au.com.medaforum.twilioSms.sms.configurations;
 
 import com.twilio.Twilio;
 import org.slf4j.Logger;

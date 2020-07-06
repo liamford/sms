@@ -1,7 +1,7 @@
-package au.com.medaforum.twilioDemo.service;
+package au.com.medaforum.twilioSms.service;
 
-import au.com.medaforum.twilioDemo.sms.configurations.TwilioConfigurer;
-import au.com.medaforum.twilioDemo.model.SmsRequest;
+import au.com.medaforum.twilioSms.sms.configurations.TwilioConfigurer;
+import au.com.medaforum.twilioSms.model.SmsRequest;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import org.springframework.beans.factory.annotation.Autowired;

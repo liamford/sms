@@ -5,3 +5,10 @@ twilio:
 
 server:
   port: 8080
+
+amazon:
+    access:
+        key: AKIAU3UCM353YUDUUFRB
+        secret-key: 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
+    region: us-east-1
+    sqs: sms
