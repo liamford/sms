@@ -1,6 +1,6 @@
 twilio:
-  account_sid: AC3597e410b816a7e82920dc25fb3f16f2
-  auth_token: d606fa704fd42fe0cc30a4eb500a984b
+    account_sid: ${sid}
+    auth_token: ${token}
   trial_number: +15005550006
 
 server:
@@ -8,7 +8,7 @@ server:
 
 amazon:
     access:
-        key: AKIAU3UCM353YUDUUFRB
-        secret-key: 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
-    region: us-east-1
-    sqs: sms
+        key: ${aws_key}
+        secret-key: ${aws_secret}
+    region: ${region}
+    sns: ${sns}
