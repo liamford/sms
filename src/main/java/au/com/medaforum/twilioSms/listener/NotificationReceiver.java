@@ -2,6 +2,7 @@ package au.com.medaforum.twilioSms.listener;
 
 import au.com.medaforum.twilioSms.model.Message;
 import au.com.medaforum.twilioSms.model.Notification;
+import au.com.medaforum.twilioSms.model.NotificationStatus;
 import au.com.medaforum.twilioSms.service.SmsServiceProviders;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
@@ -28,15 +29,16 @@ public class NotificationReceiver {
     public void receive(String json) throws JMSException {
         log.info("Result received: {}", json);
         Notification notification = GET_NOTIFICATION.apply(json);
-        if(smsEligible.test(notification)) {
+        if (smsEligible.test(notification)) {
             smsServiceProviders.sendSMS(notification);
         } else {
-            log.info("SMS not selected for {} ",notification.getEmail());
+            log.info("NOT Eligible for sending sms for {} ", notification);
         }
 
     }
 
-    Predicate<Notification> smsEligible = notification -> notification.isSmsNotification();
+    Predicate<Notification> smsEligible = notification -> notification.isSmsNotification() &&
+        notification.getNotificationType().getCode() == NotificationStatus.QUESTION.getType();
 
     Function<String, Notification> GET_NOTIFICATION = (json) -> {
         Gson gson = new Gson();

@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 public class Notification {
     private String email;
     private String mobile;
+    private String firstName;
+    private String lastName;
     private NotificationType notificationType;
     private boolean emailNotification;
     private boolean smsNotification;
