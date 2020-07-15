@@ -1,7 +1,7 @@
 twilio:
     account_sid: ${sid}
     auth_token: ${token}
-  trial_number: +15005550006
+    trial_number: ${sender_phone}
 
 server:
   port: 8080
@@ -11,4 +11,4 @@ amazon:
         key: ${aws_key}
         secret-key: ${aws_secret}
     region: ${region}
-    sns: ${sns}
+    sqs: sms
