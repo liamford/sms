@@ -17,10 +17,12 @@ public class TwilioSmsService implements SmsServiceProviders {
 
 
     private final TwilioConfigurer twilioConfigurer;
+    private final PhoneValidator phoneValidator;
 
     @Autowired
-    public TwilioSmsService(TwilioConfigurer twilioConfigurer) {
+    public TwilioSmsService(TwilioConfigurer twilioConfigurer, PhoneValidator phoneValidator) {
         this.twilioConfigurer = twilioConfigurer;
+        this.phoneValidator = phoneValidator;
     }
 
     @Override
@@ -44,9 +46,6 @@ public class TwilioSmsService implements SmsServiceProviders {
     }
 
     private boolean isPhoneNumberValid(PhoneNumber recipient) {
-        Pattern p = Pattern.compile("(0/91)?[7-9][0-9]{9}");
-        Matcher m = p.matcher(recipient.toString());
-        return (m.find() && m.group().equals(recipient));
-
+       return phoneValidator.test(recipient.getEndpoint());
     }
 }
