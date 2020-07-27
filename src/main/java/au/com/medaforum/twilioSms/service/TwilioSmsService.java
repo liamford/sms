@@ -46,6 +46,6 @@ public class TwilioSmsService implements SmsServiceProviders {
     }
 
     private boolean isPhoneNumberValid(PhoneNumber recipient) {
-       return phoneValidator.test(recipient.getEndpoint());
+       return phoneValidator.validate(recipient.getEndpoint());
     }
 }

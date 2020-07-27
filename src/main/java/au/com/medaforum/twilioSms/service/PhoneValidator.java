@@ -8,16 +8,17 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class PhoneValidator {
 
-    public boolean test(String phone) {
+    public boolean validate(String phone) {
+        log.info("validating phone number = {}", phone);
         try {
             PhoneNumber phoneNumber = PhoneNumber.fetcher(
                 new com.twilio.type.PhoneNumber(phone))
                 .fetch();
-            log.info("phone number is {}" ,phoneNumber.getNationalFormat());
+            log.info("phone validated successfully {}", phoneNumber);
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
+            log.error("phone validation failed {}", phone, e);
             return false;
         }
-
     }
 }
