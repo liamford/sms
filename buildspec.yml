@@ -35,7 +35,7 @@ phases:
             - echo Build completed on `date`
             - docker push $REPOSITORY_URI:latest
             - docker push $REPOSITORY_URI:$IMAGE_TAG
-            - printf '[{"name":"medaforum_app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
+            - printf '[{"name":"medaforum_sms","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
 artifacts:
     files:
         - imageDetail.json
