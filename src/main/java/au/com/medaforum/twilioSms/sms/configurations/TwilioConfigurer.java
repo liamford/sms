@@ -11,7 +11,7 @@ public class TwilioConfigurer {
 
     private String accountSid;
     private String authToken;
-    private String trial_number;
+    private String phone;
 
     public TwilioConfigurer() {}
 
@@ -31,12 +31,12 @@ public class TwilioConfigurer {
         this.authToken = authToken;
     }
 
-    public String getTrial_number() {
-        return trial_number;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTrial_number(String trial_number) {
-        this.trial_number = trial_number;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class TwilioConfigurer {
         return "TwilioConfigurer{" +
                 "accountSid='" + accountSid + '\'' +
                 ", authToken='" + authToken + '\'' +
-                ", trial_number='" + trial_number + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

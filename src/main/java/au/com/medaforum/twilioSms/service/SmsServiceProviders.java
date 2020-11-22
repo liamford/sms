@@ -4,5 +4,5 @@ import au.com.medaforum.twilioSms.model.Notification;
 
 public interface SmsServiceProviders {
 
-    void sendSMS(Notification notification);
+    void sendSMS(String questionId, Notification notification);
 }

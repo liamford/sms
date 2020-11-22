@@ -11,8 +11,11 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public enum NotificationStatus {
-    QUESTION(0, "Question"), ANSWER(1, "Answer");
-    private static final Map<Integer, String> NOTIFICATION_TYPE_MAP = new HashMap<Integer, String>(2);
+    QUESTION(0, "Question"),
+    MORE_INFO_REQUEST(1, "More Information"),
+    MORE_INFO_ANSWERED(2, "More Information"),
+    ANSWER(2, "Answer");
+    private static final Map<Integer, String> NOTIFICATION_TYPE_MAP = new HashMap<Integer, String>(3);
 
     static {
         for (NotificationStatus status : NotificationStatus.values()) {
